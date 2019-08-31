@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+function getnum(){
+    //返回所有名字为myt的，以数组形式
+  var mynode= document.getElementsByName("myt")        ;  
+  alert(mynode.length);
+  /*
+  function getTagElements()
+          {
+              //返回标签名称为input的，也是数组；也可以li,p,a,img
+              var myI=document.getElementsByTagName("input");
+              alert(myI.length);
+          }
+  */
+}
+</script>
+</head>
+<body>
+<input name="myt" type="text" value="1">
+<input name="myt" type="text" value="2">
+<input name="myt" type="text" value="3">
+<input name="myt" type="text" value="4">
+<input name="myt" type="text" value="5">
+<input name="myt" type="text" value="6">
+
+<br />
+<input type="button" onclick="getnum()" value="看看有几项？" />
+</body>
+</html>
