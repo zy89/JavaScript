@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+
+<ul id="test"><li>JavaScript</li><li>HTML</li></ul> 
+ 
+<script type="text/javascript">
+
+  var otest = document.getElementById("test");  //先接收，注意这里test是li的父节点
+  var n=document.createElement("li");//新建一个li
+  n.innerHTML="PHP";//给内容
+  otest.insertBefore(n,otest.childNodes[1]);//test的第[1]个子节点是HTML
+  
+</script> 
+
+</body>
+</html>

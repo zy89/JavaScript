@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+
+<ul id="test">
+  <li>JavaScript</li>
+  <li>HTML</li>
+</ul> 
+ 
+<script type="text/javascript">
+
+  var otest = document.getElementById("test");  //先接收一个点
+  var n=document.createElement("li");//申明一个新的
+  n.innerHTML="this is a new li";//给内容
+  otest.appendChild(n);//插入
+          
+</script> 
+
+</body>
+</html>
