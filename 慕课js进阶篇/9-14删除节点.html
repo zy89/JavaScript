@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="content">
+  <h1>html</h1>
+  <h1>php</h1>
+  <h1>javascript</h1>
+  <h1>jquery</h1>
+  <h1>java</h1>
+</div>
+
+<script type="text/javascript">
+function clearText() {
+  var content=document.getElementById("content");
+  //content已经是个包含所有节点的数组
+  for(var i=content.childNodes.length-1;i>=0;i--){
+     var a = content.childNodes[i];//申明一个a来表示遍历数组的每个子节点
+     content.removeChild(a);//移除每一个
+  }
+  
+}
+</script>
+
+<button onclick="clearText()">清除节点内容</button>
+
+
+
+</body>
+</html>
