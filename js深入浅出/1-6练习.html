@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+    <title>Untitled Document</title>
+    
+</head>
+<body>
+    <script type="text/javascript">   
+        /*
+         * param1 Array 
+         * param2 Array
+         * return true or false
+         */
+        function arraysSimilar(arr1, arr2){
+            //判断长度
+            if(arr1.length != arr2.length) return false;
+
+            //判断类型
+            var arr1Types = getTypes(arr1);//调用getTypes函数判断类型
+            var arr2Types = getTypes(arr2);
+            var arr1TypesCount = Object.keys(arr1Types).length;//object.keys()等于for循环
+            var arr2TypesCount = Object.keys(arr2Types).length;//收取类型种类的总个数
+            //判断类型个数是否一致
+            if(arr1TypesCount!=arr2TypesCount) return false;
+                for(var item in arr1Types){
+                    if(!arr2Types[item]) return false;
+                }
+                return true;
+
+
+            }
+        function getTypes(arr){
+            var types = {};
+            for(var a1 of arr){
+                if(typeof(a1)!="object"){
+                    types[typeof(a1)] = typeof(a1);
+                }else{
+                    // 如果是object
+                    var temp = Object.prototype.toString.apply(a1);
+                    switch(temp){
+                        case "[object Array]":
+                            temp = "array";
+                            break;
+                        case "[object Function]":
+                            temp = "function";
+                            break;
+                        case "[object Date]":
+                            temp = "date";
+                            break;
+                        case "[object Window]":
+                            temp = "window";
+                            break;
+                        case "[object Undefined]":
+                            temp = "undefined";
+                            break;
+                        case "[object Null]":
+                            temp = "null";
+                            break;
+                        case "[object Object]":
+                            // 考虑仅为object的情况
+                            temp = "object";
+                            break;
+                    }
+                    types[temp] = temp;
+                }
+            }
+            return types;
+        }
+
+    </script>
+    <script src="testData.js"></script>
+</body>
+</html>
