@@ -15,12 +15,13 @@ switch(num){
     case 4:
     case 5:
         console.log(45);
+        break;
     default:
         console.log(0);
 }
 
 function foo(){
-    'use strict' //开启严格模式，也可以放在最开头保证整个js都在严格模式
+    'use strict'; //开启严格模式，也可以放在最开头保证整个js都在严格模式
     x=1; //严格模式下会报错
     console.log(x);
 }
