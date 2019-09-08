@@ -27,5 +27,50 @@ function foo1(){
     console.log(person.name);//输出zhiyuan yu
     person.name=1;//没用，因为name的writable是false
     console.log(delete person.name);//返回false，因为是configurable是false
+
+    Object.defineProperty(person, 'type',{
+        configurable:true,
+        writable:true,
+        enumerable:false,
+        value:"Object"
+    });
+
+    console.log(Object.keys(person));//只有name没有type,因为type不可枚举
 }
-foo1();
+//foo1();
+
+//一次定义多个property
+function foo2(){
+    var person={};
+    Object.defineProperties(person, {
+        title:{value:'fe',enumerable:true},//没写的都是false
+        corp:{value:'Alibaba', enumerable:true},
+        salary:{value:5000, enumerable:true,writable:true}
+    });
+    console.log(Object.getOwnPropertyDescriptor(person,'salary'));
+    console.log(Object.getOwnPropertyDescriptor(person,'corp'));
+}
+//foo2();
+
+function foo3(){
+    var person={};
+    Object.defineProperties(person, {
+        title:{value:'fe',enumerable:true},//没写的都是false
+        corp:{value:'Alibaba', enumerable:true},
+        salary:{value:5000, enumerable:true,writable:true},
+        luck:{
+            get:function(){
+                return Math.random()>0.5?'good':'bad';
+            }
+        },
+        promote:{
+            set:function(level){
+                this.salary*=1+level*0.1;
+            }
+        }
+    });
+    console.log(person.salary);
+    person.promote =2;
+    console.log("after promote: "+person.salary);
+}
+foo3();
