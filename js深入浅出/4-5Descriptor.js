@@ -50,7 +50,7 @@ function foo2(){
     console.log(Object.getOwnPropertyDescriptor(person,'salary'));
     console.log(Object.getOwnPropertyDescriptor(person,'corp'));
 }
-//foo2();
+foo2();
 
 function foo3(){
     var person={};
@@ -73,4 +73,4 @@ function foo3(){
     person.promote =2;
     console.log("after promote: "+person.salary);
 }
-foo3();
+//foo3();
