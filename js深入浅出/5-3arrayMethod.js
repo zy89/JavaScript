@@ -55,3 +55,19 @@ function foo5(){
     console.log(arr.slice(-4,-3));//-4是arr[1]，-3是arr[2]。2
 }
 foo5();
+
+//6.splice数组拼接。修改原数组
+function foo6(){
+    var arr=[1,2,3,4,5];
+    arr.splice(2);//arr[2]开始剔除数组，等于把3,4,5删除
+    console.log(arr);//1，2
+
+    var arr1=[1,2,3,4,5];
+    arr1.splice(2,2);//arr[2]开始剔除，剔除2个元素。等于删除3，4
+    console.log(arr1);//1,2,5
+
+    var arr2=[1,2,3,4,5];
+    arr2.splice(1,1,'a','b');//arr[1]开始剔除，剔除1个。等于删除2。同位置又加上a和b
+    console.log(arr2);//1,'a','b',3,4,5
+}
+foo6();
