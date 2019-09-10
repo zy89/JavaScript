@@ -81,4 +81,12 @@ function foo5(){
     console.log(arr.lastIndexOf(2,-2));//找2，从index3开始往左找。返回3
     console.log(arr.lastIndexOf(2,-3));//找2，从index2开始往左找。返回1
 }
-foo5();
+//foo5();
+
+//13. Array.isArray([]) 判断是否为数组
+function foo6(){
+    var arr=[];
+    var b = Array.isArray(arr);
+    console.log(b);//true
+}
+foo6();
