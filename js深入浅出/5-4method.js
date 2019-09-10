@@ -48,4 +48,37 @@ function foo3(){
 
     console.log(b1+" "+b2+" "+b3+" "+b4);
 }
-foo3();
+//foo3();
+
+//11.reduce&reduceRight 聚合器。不修改原数组
+function foo4(){
+    var arr=[1,2,3];
+    var sum=arr.reduce(function(total,num){
+        return total+num;
+    });//先算1+2；再算3+3.从左往右
+    console.log(sum);
+
+    var arr1=[3,9,6];
+    var max =arr1.reduce(function(x,y){
+        console.log(x+'|'+y);
+        return x>y? x:y;
+    });//也可以用来输出最大数
+    console.log(max);
+
+    //reduceRight就是从右往左，先6和9比；再9和3比。用法一样
+}
+//foo4();
+
+//12.indexOf&lastIndexOf 数组检索
+function foo5(){
+    var arr =[1,2,3,2,1];
+    console.log(arr.indexOf(2));//1
+    console.log(arr.indexOf(99));//-1，没有就返回-1
+    console.log(arr.indexOf(1,1));//查找1，但是从index1也就是第二个元素开始。返回4
+    console.log(arr.indexOf(1,-3));//查找1，从屁股的-3位开始找。返回4
+    console.log(arr.indexOf(2,-1));//查找2，从最后开始。返回-1
+    console.log(arr.lastIndexOf(2));//找最后的2元素在arr[3]，返回3
+    console.log(arr.lastIndexOf(2,-2));//找2，从index3开始往左找。返回3
+    console.log(arr.lastIndexOf(2,-3));//找2，从index2开始往左找。返回1
+}
+foo5();
