@@ -13,12 +13,12 @@ function repeatString(str,n){
 console.log(repeatString("a",3));
 console.log(repeatString("Hi",5));
 
-//2.reverse方法
+//2.reverse方法。修改原数组
 var arr1=[1,2,3];
 arr1.reverse();//是修改原数组的
 console.log(arr1);
 
-//3.sort方法
+//3.sort方法。修改原数组
 var arr2=["a","b","c","d"];
 console.log(arr2.sort());//abcd，sort是按字母顺序排序的，因此无法直接排序数字
 //数字sort
@@ -36,7 +36,7 @@ arr4.forEach(function(item){
     console.log('age',item.age);
 });
 
-//4.concat方法 合并数组
+//4.concat方法 合并数组。不修改原数组
 var arr5 =[1,2,3];
 console.log(arr5.concat(4,5));//1,2,3,4,5
 console.log(arr5);//不修改原始数组，还是1，2，3
@@ -45,3 +45,13 @@ console.log(arr6);
 //如果参数是数组，里面还有数组如[1,[2,3]]。不会拉平两次
 var arr7=arr5.concat([1,[2,3]]);
 console.log(arr7);//1，2，3，1，[2,3]
+
+//5.silce用法，左闭右开原则。不修改原数组
+function foo5(){
+    var arr=[1,2,3,4,5];
+    console.log(arr.slice(1,3));//从arr[1]到arr[3]前一个，也就是2，3
+    console.log(arr.slice(1));//从arr[1]开始到最后所有，也就是2,3,4,5
+    console.log(arr.slice(1,-1));//-1就是倒数第一位，也就是arr[4]。2，3，4
+    console.log(arr.slice(-4,-3));//-4是arr[1]，-3是arr[2]。2
+}
+foo5();
