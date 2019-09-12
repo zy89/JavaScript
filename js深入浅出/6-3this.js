@@ -89,3 +89,36 @@ function foo3(){
     console.log(o.a);//89
 }
 foo3();
+
+//7. call/apply方法与this
+//call是扁平传参，apply是作为数组
+function foo4(){
+    //传入c,d参数
+    function add(c,d){
+        return this.a+this.b+c+d;
+    }
+    var o={a:1,b:3};
+    console.log(add.call(o,5,7));//第一个参数是你想作为this的对象o, 5和7作为c和d
+    //输出是1+3+5+7=16
+    console.log(add.apply(o,[10,20]));//1+3+10+20=34
+
+    function bar(){
+        console.log(Object.prototype.toString.call(this));//指定this
+        //输出就是内部标签的字符串：[object Number]
+    }
+    bar.call(7);//调用bar.call把7传进去
+}
+foo4();
+
+//8. bind方法与this，新版本的，更高效
+function foo5(){
+    function f(){
+        return this.a;
+    }
+    var g=f.bind({a:"test"});//将这个对象作为this传进去，拿到新的g对象
+    console.log(g());//this已经指向bind的参数
+
+    var o={a:37,f:f,g:g};//对象a是37，f是函数f指向37，g是新的对象g
+    console.log(o.f(),o.g());//f是37，g经过bind以后仍然是test
+}
+foo5();
