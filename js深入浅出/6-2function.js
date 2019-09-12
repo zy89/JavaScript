@@ -1,4 +1,4 @@
-//1.函数声明。先调用再申明可以
+//1.函数声明。先调用再声明可以
 function add(a,b){
     a=+a;
     b=+b;
@@ -8,7 +8,7 @@ function add(a,b){
     return a+b;
 }
 
-//2.函数表达式。先调用再申明会报错
+//2.函数表达式。先调用再声明会报错
 //2.1 函数变量
 var add =function (a,b){
     //do sth
