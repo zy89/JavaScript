@@ -25,3 +25,13 @@ return function(){
 var add =function foo(a,b){
     //do sth
 };
+
+//3.使用函数构造器。少用，有安全风险
+var func1 =new Function('a','b','console.log(a+b);');
+func1(1,2);//3
+//两种方式没太大区别
+var func2 =Function('a','b','console.log(a+b);');
+func2(1,2);
+//构造器里的局部变量外层拿不到：
+Function('var localVal = "local";console.log(localVal);')();//local
+console.loh(typeof localVal);//undefined
