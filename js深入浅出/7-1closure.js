@@ -1,4 +1,6 @@
 //闭包：从外部读取函数内的局部变量；可以通过再函数的内部再定义一个函数
+//优点：灵活和方便，封装
+//缺点：空间浪费，内存泄漏，性能消耗
 
 //1.闭包的例子
 //常规函数
@@ -40,3 +42,28 @@ for(var i=1;i<4;i++){
         });
     }(i);//b.将每次的值传到匿名函数里
 }
+
+//3.闭包-封装  
+(function(){
+    var _userId =23492;
+    var _typeId ='item';
+    var export = {};
+
+    function converter(userId){
+        return+userId;
+    }
+
+    export.getUserId = function(){
+        return converter(_userId);
+    }
+    export.getTypeId = function(){
+        return _typeId;
+    }
+    window.export = export;//浏览器里
+}());
+
+export.getUserId();//23492;只能通过这个对象上的方法去访问变量
+export.getTypeId();//item
+//如果直接访问是拿不到的
+export._userId;//undefined
+export._typeId;//undefined
