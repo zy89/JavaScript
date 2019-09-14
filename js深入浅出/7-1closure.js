@@ -18,3 +18,25 @@ var func =outer();//调用outer()返回(的是匿名函数function()
 //这个函数里仍然可以访问外部的outer()的局部变量localVal
 
 func();//调用func()也能访问outer函数的局部变量localVal
+
+//2.常见错误之循环闭包
+//想要点击一次弹出一次alert，并报数。
+document.body.innerHTML = "<div id=div1>aaa</div>"+
+"<div id=div2>bbb</div>"+"<div id=div3>ccc</div>";
+for(var i=1;i<4;i++){
+    document.getElementById('div'+i).addEventListener('click',function(){
+        alert(i);//每次都是4，因为var i其实是全局作用的，闭包把最后i=4调出来了
+    });
+}
+//解决方法：
+document.body.innerHTML = "<div id=div1>aaa</div>"+
+"<div id=div2>bbb</div>"+"<div id=div3>ccc</div>";
+for(var i=1;i<4;i++){
+    //如下所示，a.用立即执行的匿名函数给它包装起来
+    !function(i){
+        //c.传进去以后，再通过ById去引用
+        document.getElementById('div'+i).addEventListener('click',function(){
+                alert(i);
+        });
+    }(i);//b.将每次的值传到匿名函数里
+}
