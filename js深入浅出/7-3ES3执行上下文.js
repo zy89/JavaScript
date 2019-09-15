@@ -1,5 +1,5 @@
 //浏览器测试一下
-//在VO里，varibale object
+//在VO里，variable object
 //1.先处理函数声明，x的值是对象
 //2.再处理变量声明，这里有x, a, b
 
