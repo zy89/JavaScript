@@ -50,3 +50,10 @@ Student.prototype.learn=function(subject){
     console.log(this.name+' is learning '+
     subject+' at '+ this.className);
 };
+
+//2.4测试
+var yzy =new Student('yzy',24,'class 3, grade2');//实例化
+yzy.hi();//Hi, my name is yzy, I am 24 years old now, and from class 3, grade2
+console.log(yzy.LEGS_NUM);//2
+yzy.walk();//yzy is walking...
+yzy.learn('math');//yzy is learning math at class 3, grade2
