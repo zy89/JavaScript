@@ -1,4 +1,4 @@
-//重载：重载就是一组具有相同名字、不同参数列表的函数（方法）
+//1.重载：重载就是一组具有相同名字、不同参数列表的函数（方法）
 function Person(){
     var args = arguments;
     //判断第一个参数是否是对象，&&用来排除null（null也是object）
@@ -28,3 +28,25 @@ console.log(yzy.toString());
 
 var xx = new Person({name:'xx',age:38});
 console.log(xx.toString());
+
+//2.链式调用
+function ClassManager(){}
+ClassManager.prototype.addClass = function(str){
+    console.log('Class: '+ str+ ' added.');
+    return this;//实例化
+};
+var manager = new ClassManager();
+manager.addClass('classA').addClass('classB').addClass('classC');
+
+//3.抽象类
+
+//4.模块化,声明一个函数马上调用
+var moduleA;
+moduleA = function(){
+    var prop =1;
+    function func(){}
+    return {
+        func:func,
+        prop:prop
+    };
+}();
