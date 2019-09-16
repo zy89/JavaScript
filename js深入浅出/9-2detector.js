@@ -19,7 +19,7 @@
         console.log('analyzing...');
         this.data = '###data###';
     };
-};
+
 //第一个子类检测link
 function LinkDetector(links){
     if(!this instanceof LinkDetector){
@@ -62,3 +62,23 @@ Object.freeze(LinkDetector);
 Object.freeze(LinkDetector.prototype);
 Object.freeze(ContainerDetector);
 Object.freeze(ContainerDetector.prototype);
+
+//把结果输出到外部
+Object.defineProperties(global,{
+    //只指定value，让其他三个属性都为false
+    LinkDetector:{value:LinkDetector},
+    ContainerDetector:{value:ContainerDetector},
+    DetectorBase:{value:DetectorBase}
+});
+
+function inherit(subClass,superClass){
+    subClass.prototype = Object.create(superClass);
+    subClass.prototype.constructor = subClass;
+}
+}(this);
+
+var cd = new ContainerDetector('#abc #cde');
+var Id = new LinkDetector('http://www.baidu.com');
+
+cd.detect();
+Id.detect();
