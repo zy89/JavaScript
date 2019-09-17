@@ -42,3 +42,11 @@ console.log(d);// true
 //(?:x) 表示仅分组
 var e=/(?:abc)(def)\1/.test('abcdefdef');//这样abc就不会被算入\1
 console.log(e);
+
+//2.4重复
+//x* 重复次数>=0; x+ 重复次数>0;采用贪心算法,匹配尽可能多的
+//x*? x+?;非贪心算法，匹配尽可能少的
+//x? 出现0或1次
+// x|y 表示x或者y； ad|cd|ef可以匹配ab或者cd或者ef
+// x{n}表示重复n次；x{n,}表示重复>=n次；x{n,m}表示重复次数x满足n<=x<=m
+
