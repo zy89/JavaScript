@@ -50,3 +50,26 @@ console.log(e);
 // x|y 表示x或者y； ad|cd|ef可以匹配ab或者cd或者ef
 // x{n}表示重复n次；x{n,}表示重复>=n次；x{n,m}表示重复次数x满足n<=x<=m
 
+//3. 三个flag:
+//3.1 global标签用来查询全局，避免查到第一个就结束了
+//3.2 ignoreCase 不区分大小写
+//3.3 multiline 跨行进行检索
+/abc/gim.test("ABC");//gim就是三个都用上了
+RegExp("abc","mgi");//mgi也是，顺序无所谓
+
+//4. string类型与正则相关的方法
+var f= "abcabcdef".search(/(abc)\1/);//找abcabc的位置
+console.log(f);//0
+
+var g = "aabbbbcc".replace(/b+?/,"1");//替换尽可能少的b
+console.log(g);
+
+var h = "aabbbbcc".match(/b+/);//匹配b
+console.log(h);
+
+var i="aabbbbccbbaa".match(/b+/g);//匹配b，加个global标签
+console.log(i);//[ 'bbbb', 'bb' ]，全部b都找出来
+
+var k ="aabbbbccbbaa".split(/b+/);//用b当作分割符
+console.log(k);//[ 'aa', 'cc', 'aa' ]
+
