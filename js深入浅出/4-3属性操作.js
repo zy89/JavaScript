@@ -37,13 +37,13 @@ var obj = Object.create(o); //把新的obj和原型链上的o都输出
 obj.a =4;
 var key;
 for (key in obj){
-    console.log(key);
+    console.log(key);//a,x,y,z都有
 }
 
 //如果只要新对象上的属性，不要原型链的一起。那就多一个if判断
 var key2;
 for (key2 in obj){
     if(obj.hasOwnProperty(key2)){
-        console.log(key2);
+        console.log(key2);//只有a
     }
 }

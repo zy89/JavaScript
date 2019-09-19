@@ -28,6 +28,7 @@ Object.freeze(obj);//把configurable和writable都改为false
 console.log(getDes(obj,'x'));
 //以上方法都不会影响原型链
 }
+//foo();
 
 //序列化
 function foo1(){
@@ -57,4 +58,4 @@ function foo2(){
     };
     console.log(JSON.stringify(obj));
 }
-foo2();
+//foo2();

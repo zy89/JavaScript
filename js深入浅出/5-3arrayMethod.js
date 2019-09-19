@@ -5,7 +5,8 @@ function foo(){
     console.log(arr.join());//join()没有东西的话默认用逗号
     console.log(arr.join("_"));// 1_2_3
 }
-foo();
+//foo();
+
 //通过join方法可以快速写一个重复字符串的函数
 function repeatString(str,n){
     return new Array(n+1).join(str);
@@ -16,7 +17,7 @@ console.log(repeatString("Hi",5));
 //2.reverse方法。修改原数组
 var arr1=[1,2,3];
 arr1.reverse();//是修改原数组的
-console.log(arr1);
+console.log(arr1);//[3,2,1]
 
 //3.sort方法。修改原数组
 var arr2=["a","b","c","d"];
@@ -27,6 +28,7 @@ arr3.sort(function(a,b){
     return a-b;//从大到小就是b-a
 });
 console.log(arr3);//也是修改原数组
+
 //对象sort
 arr4=[{age:25},{age:39},{age:99}];
 arr4.sort(function(a,b){
@@ -42,11 +44,12 @@ console.log(arr5.concat(4,5));//1,2,3,4,5
 console.log(arr5);//不修改原始数组，还是1，2，3
 var arr6=arr5.concat([10,11],13);//1,2,3,10,11,13小数组会被拉平
 console.log(arr6);
+
 //如果参数是数组，里面还有数组如[1,[2,3]]。不会拉平两次
 var arr7=arr5.concat([1,[2,3]]);
 console.log(arr7);//1，2，3，1，[2,3]
 
-//5.silce用法，左闭右开原则。不修改原数组
+//5.silce用法，左闭右开原则(index下表，开始包括结束不包括))。不修改原数组
 function foo5(){
     var arr=[1,2,3,4,5];
     console.log(arr.slice(1,3));//从arr[1]到arr[3]前一个，也就是2，3
