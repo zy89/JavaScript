@@ -16,7 +16,7 @@ function outer2(){
         return localVal;
     };
 }
-var func =outer();//调用outer()返回(的是匿名函数function()
+var func =outer();//调用outer()返回的是匿名函数function()
 //这个函数里仍然可以访问外部的outer()的局部变量localVal
 
 func();//调用func()也能访问outer函数的局部变量localVal
