@@ -1,0 +1,11 @@
+/*公用*/
+.comWidth{width: 1000px; margin-left: auto; margin-right: auto;}
+.leftArea{float: left;}
+.rightArea{float: right;}
+
+/*topBar*/
+.topBar{height:31px; background-color: #F7F7F7; line-height: 31px;}
+.collection{background: url(../images/icons/collection.jpg) 
+left center no-repeat; padding-left: 30px; font-weight: bold;}
+
+.topBar a:hover{color:red;}
